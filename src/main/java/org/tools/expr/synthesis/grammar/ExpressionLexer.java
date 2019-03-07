@@ -1,5 +1,5 @@
 // Generated from ./src/main/resources/Expression.g4 by ANTLR 4.5.1
-package org.tools.expr.format.grammar;
+package org.tools.expr.synthesis.grammar;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

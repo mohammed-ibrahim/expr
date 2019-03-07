@@ -1,5 +1,9 @@
 grammar Expression;
 
+root
+ : expression                                     #visitExpression
+ ;
+
 expression
  : LPAREN expression RPAREN                       #parenExpression
  | NOT expression                                 #notExpression

@@ -1,5 +1,5 @@
 // Generated from ./src/main/resources/Expression.g4 by ANTLR 4.5.1
-package org.tools.expr.format.grammar;
+package org.tools.expr.synthesis.grammar;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -10,6 +10,13 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  * operations with no return type.
  */
 public interface ExpressionVisitor<T> extends ParseTreeVisitor<T> {
+	/**
+	 * Visit a parse tree produced by the {@code visitExpression}
+	 * labeled alternative in {@link ExpressionParser#root}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVisitExpression(ExpressionParser.VisitExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code sliteralExpression}
 	 * labeled alternative in {@link ExpressionParser#expression}.
