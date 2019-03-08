@@ -13,7 +13,7 @@ public class Analyzer extends ExpressionBaseVisitor<INode> {
     public INode visitVisitExpression(ExpressionParser.VisitExpressionContext ctx) {
 
         System.out.println("visitVisitExpression");
-        INode child = visitChildren(ctx.expression());
+        INode child = visit(ctx.expression());
         return new Root(child);
 
     }
@@ -52,6 +52,7 @@ public class Analyzer extends ExpressionBaseVisitor<INode> {
     public INode visitIdentifierExpression(ExpressionParser.IdentifierExpressionContext ctx) {
 
         System.out.println("visitIdentifierExpression");
+        System.out.println(ctx.IDENTIFIER().getText());
         return new IdentifierNode(ctx.IDENTIFIER().getText());
     }
 
@@ -76,8 +77,10 @@ public class Analyzer extends ExpressionBaseVisitor<INode> {
     @Override
     public INode visitComparatorExpression(ExpressionParser.ComparatorExpressionContext ctx) {
         System.out.println("visitComparatorExpression");
-        INode lhs = visitChildren(ctx.left);
-        INode rhs = visitChildren(ctx.right);
+
+        INode lhs = visit(ctx.left);
+        INode rhs = visit(ctx.right);
+
         ComparatorNode node = new ComparatorNode(ctx.comparator().getText(), lhs, rhs);
         return node;
     }
