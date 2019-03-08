@@ -1,9 +1,9 @@
 package org.tools.expr.synthesis;
 
-import org.tools.expr.core.entity.IdentifierNode;
 import org.tools.expr.core.entity.Operator;
 import org.tools.expr.core.entity.node.ComparatorNode;
 import org.tools.expr.core.entity.node.INode;
+import org.tools.expr.core.entity.node.IdentifierNode;
 import org.tools.expr.core.entity.node.Root;
 import org.tools.expr.synthesis.grammar.ExpressionBaseVisitor;
 import org.tools.expr.synthesis.grammar.ExpressionParser;

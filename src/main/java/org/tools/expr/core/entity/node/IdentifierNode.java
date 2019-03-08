@@ -1,6 +1,4 @@
-package org.tools.expr.core.entity;
-
-import org.tools.expr.core.entity.node.INode;
+package org.tools.expr.core.entity.node;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
