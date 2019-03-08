@@ -1,4 +1,4 @@
-package org.tools.expr.core.entity;
+package org.tools.expr.core.entity.node;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

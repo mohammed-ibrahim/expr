@@ -1,9 +1,10 @@
 package org.tools.expr.synthesis;
 
-import org.tools.expr.core.entity.ComparatorNode;
-import org.tools.expr.core.entity.INode;
 import org.tools.expr.core.entity.IdentifierNode;
-import org.tools.expr.core.entity.Root;
+import org.tools.expr.core.entity.Operator;
+import org.tools.expr.core.entity.node.ComparatorNode;
+import org.tools.expr.core.entity.node.INode;
+import org.tools.expr.core.entity.node.Root;
 import org.tools.expr.synthesis.grammar.ExpressionBaseVisitor;
 import org.tools.expr.synthesis.grammar.ExpressionParser;
 
@@ -80,8 +81,9 @@ public class Analyzer extends ExpressionBaseVisitor<INode> {
 
         INode lhs = visit(ctx.left);
         INode rhs = visit(ctx.right);
+        Operator op = Operator.parse(ctx.comparator().getText().toLowerCase());
 
-        ComparatorNode node = new ComparatorNode(ctx.comparator().getText(), lhs, rhs);
+        ComparatorNode node = new ComparatorNode(op, lhs, rhs);
         return node;
     }
 

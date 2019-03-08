@@ -1,11 +1,15 @@
 package org.tools.expr.boot;
 
+import java.util.Arrays;
+import java.util.Map;
+
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.tools.expr.common.Utility;
 import org.tools.expr.core.entity.DescriptiveErrorListener;
-import org.tools.expr.core.entity.INode;
 import org.tools.expr.core.entity.ParseFailureException;
+import org.tools.expr.core.entity.node.INode;
 import org.tools.expr.synthesis.Analyzer;
 import org.tools.expr.synthesis.grammar.ExpressionLexer;
 import org.tools.expr.synthesis.grammar.ExpressionParser;
@@ -19,7 +23,8 @@ public class ExpressionMain {
         try {
         
             ExpressionMain em = new ExpressionMain();
-            em.getTree("a = b");
+            INode root = em.getTree("a = b");
+            Map<String, Object> params = Utility.<String, Object>mapify(Arrays.asList("a", 1, "b", 2));
         } catch (ParseFailureException pfe) {
           String message = String.format("sourcename: %s line: %s charPos: %s  offendingtoken: %s", pfe.getSourceName(), pfe.getLine(), pfe.getCharPositionInLine(), pfe.getOffendingToken());
           System.err.println(message);
